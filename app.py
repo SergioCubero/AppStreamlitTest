@@ -1,11 +1,15 @@
 import streamlit as st
 import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 from pypdf import PdfReader
 
-st.title('Faculty Lesson Assistant')
-genai.configure(api_key="Secreto")
+load_dotenv()
 
-if "messages" not in st.session_state:https://github.com/SergioCubero/AppStreamlitTest/settings
+st.title('Faculty Lesson Assistant')
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+if "messages" not in st.session_state:
     st.session_state.messages = []
 
 uploaded_file = st.file_uploader('Upload a lesson plan')
@@ -16,7 +20,7 @@ if uploaded_file:
 
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
-            st.markdown(msg["content"])
+            st.markdown(msg["content"]) 
 
     if prompt := st.chat_input("Ask about the lesson plan"):
         st.session_state.messages.append({"role": "user", "content": prompt})
