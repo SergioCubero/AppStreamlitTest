@@ -1,10 +1,8 @@
 import streamlit as st
 import google.generativeai as genai
-import os
 from dotenv import load_dotenv
 from pypdf import PdfReader
 
-load_dotenv()
 
 st.title('Faculty Lesson Assistant')
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
