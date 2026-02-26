@@ -3,9 +3,9 @@ import google.generativeai as genai
 from pypdf import PdfReader
 
 st.title('Faculty Lesson Assistant')
-genai.configure(api_key="")
+genai.configure(api_key="Secreto")
 
-if "messages" not in st.session_state:
+if "messages" not in st.session_state:https://github.com/SergioCubero/AppStreamlitTest/settings
     st.session_state.messages = []
 
 uploaded_file = st.file_uploader('Upload a lesson plan')
