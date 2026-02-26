@@ -5,7 +5,7 @@ from pypdf import PdfReader
 
 
 st.title('Faculty Lesson Assistant')
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
